@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>JQUERY와 CCS식별자</title>
+        <script src="./jquery-3.7.1.js"></script>
+        <script>
+            window.onload = function(){
+                // alert("문서가 로드되었습니다.");
+
+                // JQUERY를 이용해서 객체 탐색
+                // * : 전체 선택자
+                // CSS속성 변경하는 함수
+                // $(식별자).css("속성이름", "속성값");
+                $("*").css("color", "blue");
+                // 태그 이름
+                $("h3").css("font-size", "3rem");
+                // 클래스이름
+                $(".myClass").css("background-color", "red");
+                // ID
+                $("#myId").text("id로 선택했습니다.");
+                // 복수의 객체를 선택
+                $(".myClass, .yourClass").html("여러 객체를 선택했습니다.");
+                // 가상 선택자 : ()JQ : 없으면 CSs
+                $("li:odd").css("color", "green"); // 짝
+                $("li:even()").css("color", "pink"); // 홀
+                $("li:first").css("font-size", "2rem"); // 처음
+                $("li:last").css("font-size", "1.5rem"); // 마지막
+                // 자손 선택자
+                $("ul .myClass").css("font-size", "2rem");
+
+            }
+        </script>
+    </head>
+    <body>
+        <span class="yourClass">span입니다.</span>
+        <hr>
+        <span class="myClass">span입니다.</span>
+        <h3>h3입니다.</h3>
+        <ul>
+            <li>1st</li>
+            <li id="myId">2nd</li>
+            <li>3rd</li>
+            <li>4th</li>
+        </ul>
+        <ul>
+            <li>5th</li>
+            <li>6th</li>
+            <li class="myClass">7th</li>
+            <li>8th</li>
+        </ul>
+    </body>
+</html>

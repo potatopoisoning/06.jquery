@@ -9,33 +9,39 @@
 			function getValue() {
 				// 자바스크립트로 객체 찾기
 				let obj_JS = document.getElementById("uname");
-				console.log(obj_JS);
+				console.log("obj_JS", obj_JS);
 				// JQUERY로 객체 찾기
 				// $(CSS식별자)
 				let obj_JQ = $("#uname");
-				console.log(obj_JQ);
+				console.log("obj_JQ", obj_JQ);
 				// 자바스크립트의 추가함수
 				let obj_JSN = document.querySelector("#uname");
 				let arry = document.querySelectorAll(".msg_JS");
-				console.log(obj_JSN);
+				console.log("obj_JSN", obj_JSN);
 
 				// vlaue 값 호출
-				console.log(obj_JS.value);
-				console.log(obj_JQ.val());
-				console.log(obj_JSN.value);
+				console.log("obj_JS.value", obj_JS.value);
+				// JQUERY객체임에도 원소가 하나일 경우에 첫번째 원소를 잘 호출 해줍니다.
+				console.log("obj_JQ.val()", obj_JQ.val());
+				console.log("obj_JSN.value", obj_JSN.value);
 
 				// 메세지를 출력할 객체 찾기
 				let msg_box_JS = document.getElementsByClassName("msg_JS")[0];
 				let msg_box_JQ = $(".msg_JQ");
 				let msg_box_JSN = document.querySelector(".msg_JSN");
-				console.log(msg_box_JS);
-				console.log(msg_box_JQ);
-				console.log(msg_box_JSN);
+				console.log("msg_box_JS", msg_box_JS);
+				console.log("msg_box_JQ", msg_box_JQ);
+				console.log("msg_box_JSN", msg_box_JSN);
 
 				// 객체의 값 바꾸기 Text
 				msg_box_JS.innerText = obj_JS.value;
 				msg_box_JQ.text(obj_JQ.val());
 				msg_box_JSN.innerText = obj_JSN.value;
+
+				// 객체의 값 바꾸기 HTML
+				msg_box_JS.innerHTML = obj_JS.value;
+				msg_box_JQ.html(obj_JQ.val());
+				msg_box_JSN.innerHTML = obj_JSN.value;
 			}
 		</script>
 	</head>

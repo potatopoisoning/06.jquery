@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>onload ready</title>
+        <script src="jquery-3.7.1.js"></script>
+        <script>
+            window.onload = function(){
+                // JS에서 문서가 준비되었을때에 익명함수 실행
+                let obj = document.getElementsByTagName("input")[0];
+                obj.focus();
+            }
+
+            // JQ에서 문서가 준비되었을때 실행되는 익명함수
+            // JQUERY객체.함수(익명함수(){ 실행할 코드 });
+            $(document).ready(function(){
+                $("input").val("ezen");
+                $("input").focus();
+            });
+        </script>
+    </head>
+    <body>
+        <input type="text">
+    </body>
+</html>
