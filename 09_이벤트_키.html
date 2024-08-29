@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+    <html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>키보드 입력</title>
+        <script src="jquery-3.7.1.js"></script>
+        <script>
+            // 문서가 준비되면, input객체를 찾아서
+            // 키눌림과, 키올라옴에 대해서 이벤트 함수를 작성
+            $(document).ready(function(){
+                $("input")
+                .keydown(function(){
+                    $(".msgbox").html("keyDown!!"); // 눌림
+                })
+                .keyup(function(){
+                    $(".msgbox").html("keyUp!!"); // 뗌
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <input type="text"><br>
+        <span class="msgbox"></span>
+    </body>
+</html>

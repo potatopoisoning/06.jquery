@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>서브메뉴</title>
+        <script src="jquery-3.7.1.js"></script>
+        <style>
+            table{
+                width: 500px;
+            }
+            #mtblA{
+                position: absolute;
+                background-color: lightpink;
+                display: none;
+            }
+            #mtblB{
+                position: absolute;
+                background-color: pink;
+                display: none;
+            }
+            #mtblC{
+                position: absolute;
+                background-color: lavenderblush;
+                display: none;
+            }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $("#menuA").mouseover(function(){
+                    $("#mtblA").attr("display", "table");
+                });
+
+            });
+        </script>
+    </head>
+    <body>
+        <!-- 메뉴 테이블 -->
+        <table border="1">
+            <tr>
+                <td id="menuA">메뉴1</td>
+                <td id="menuB">메뉴2</td>
+                <td id="menuC">메뉴3</td>
+            </tr>
+        </table>
+        <!-- 하위 테이블 -->
+        <table border="1" id="mtblA">
+            <tr>
+                <td>메뉴1</td>
+                <td>메뉴2</td>
+                <td>메뉴3</td>
+            </tr>
+        </table>
+        <table border="1" id="mtblB">
+            <tr>
+                <td>메뉴1</td>
+                <td>메뉴2</td>
+                <td>메뉴3</td>
+            </tr>
+        </table>
+        <table border="1" id="mtblC">
+            <tr>
+                <td>메뉴1</td>
+                <td>메뉴2</td>
+                <td>메뉴3</td>
+            </tr>
+        </table>
+        <!-- 내용 테이블 -->
+        <table border="1">
+            <tr>
+                <th >번호</th>
+                <th style="width: 400px;">제목</th>
+            </tr>
+            <tr>
+                <td style="text-align: center;">1</td>
+                <td>제목입니다.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">2</td>
+                <td>제목입니다.</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;">3</td>
+                <td>제목입니다.</td>
+            </tr>
+        </table>
+    </body>
+</html>

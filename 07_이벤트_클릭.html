@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>클릭 이벤트</title>
+        <script src="jquery-3.7.1.js"></script>
+        <style>
+            div{
+                background-color: orange;
+            }
+        </style>
+        <script>
+            function inlineEvent(obj){
+                // 객체의 속성을 변경
+                obj.style.backgroundColor = "green";
+                obj.setAttribute("style", "color:white");
+            }
+            // window.onload = function(){
+            //     객체.onclick = function();
+            // }
+            window.onload = function(){
+                let divList = document.querySelectorAll("div");
+                for(let item of divList)
+                {
+                    // 클릭이 발생되었을때에 익명함수를 실행
+                    item.onclick = () => {
+                        item.innerText = "클릭되었습니다.";
+                    };
+                }
+                // JQ 이벤트 
+                // 객체(들).이벤트함수(익명함수[선언된함수])
+                $("div").click(function(){
+                    // alert("div가 클릭되었습니다.");
+                    // 이벤트가 일어난 객체 -> this
+                    $(this).css("background-color", "yellow");
+                    $(this).css("color", "green");
+                });
+                $("div").dblclick(function(){
+                    $(this).text("더블클릭되었습니다.");
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <div onclick="inlineEvent(this);">클릭해주세요.</div>
+        <div>클릭해주세요.</div>
+        <div>클릭해주세요.</div>
+    </body> 
+</html>

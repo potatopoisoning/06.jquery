@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>마우스 이벤트</title>
+         <script src="jquery-3.7.1.js"></script>
+         <script>
+            $(document).ready(function(){
+                console.log($("#myImg")); 
+                // JQ 이벤트 함수는 연달아 작성이 가능합니다.
+                // 객체.이벤트함수(익명함수).이벤트함수(익명함수)...
+                $("#myImg").mouseover(function(){
+                    $(this).attr("width", "210px");
+                })
+                .mouseout(function(){
+                    $(this).attr("width", "200px");
+                })
+                // 클릭되었을때에 src 속성값 가져오기
+                .click(function(){
+                    console.log($(this).attr("src"));
+                    if($(this).attr("src") == "cat2.jpg")
+                    {
+                        $(this).attr("src", "cat1.jpg");
+                    }else{
+                        $(this).attr("src", "cat2.jpg");
+                    }
+                });
+            });
+         </script>
+    </head>
+    <body>
+        <img src="cat1.jpg" alt="고양이 사진" width="200px" id="myImg">
+    </body>
+</html>

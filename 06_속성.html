@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>객체의 속성</title>
+        <script src="jquery-3.7.1.js"></script>
+        <script>
+            function setAttr(obj){
+                // 객체의 속성 가져오기
+                // 객체.getAttribute("속성이름")
+                console.log("obj.value", obj.value);
+                console.log("obj.getAttribute('value')",obj.getAttribute("value"));
+                console.log(obj.getAttribute("type"));
+                // 객체의 속성값 바꾸기
+                // 객체.setAttribute("속성이름", "속성값");
+                obj.setAttribute("value", "변경된 이름");
+
+                // JQ
+                // $(선택자).attr("속성이름");
+                // $(선택자).attr("속성이름", "속성값");
+                console.log("JQ : type", $(obj).attr("type"));
+                console.log("JQ : value", $(obj).attr("value"));
+                // value 속성값을 'JQ로 변경'으로 바꿔보세요.
+                $(obj).attr("value", "JQ로 변경");
+            }
+            let cnt = 1;
+            function addBtn(obj)
+            {
+                /*
+                // 부모를 찾고,부모의 마지막 객체로 버튼을 추가
+                console.log(obj.parentNode); // 부모객체
+                // 부모 객체의 innerHTML 속성값을 가져와서
+                let ori_html =  obj.parentNode.innerHTML;
+                // 그 뒤에 HTML을 추가 -> 버튼이 추가된 효과
+                obj.parentNode.innerHTML = ori_html + '<input type="button" value="버튼만들기" onclick="addBtn(this);"><br>';*/
+
+                // html 객체 생성하기
+                // document.createElement("태그이름");
+                let newBtn = document.createElement("input");
+                newBtn.setAttribute("type", "button");
+                newBtn.setAttribute("value", "추가된 버튼" + cnt);
+                newBtn.setAttribute("onclick", "del(this)");
+                // 부모 객체에게 새로 생성한 객체를 자식객체로 추가
+                // 상위객체.appendChild(추가할객체);
+                console.log(newBtn);
+                obj.parentNode.appendChild(newBtn);
+                cnt++;
+            }
+            
+            function del(obj)
+            {
+                // 객체.remove();
+                obj.remove();
+            }
+            
+            function addBtn_JQ(obj)
+            {
+                // JQ 객체 생성
+                console.log($("<input type='button'>"));
+                let newBtn_JQ = $("<input type='button'>");
+                newBtn_JQ.attr("value", "JQ로 만든 객체");
+                newBtn_JQ.attr("onclick", "delJQ(this);");
+                // JQ 객체를 다른 객체에 추가
+                // JQ객체.append(새객체);
+                $(obj).parent().append(newBtn_JQ);
+            }
+
+            function delJQ(obj)
+            {
+                // JQ 객체 삭제
+                // 객체.remove();
+                obj.remove();
+            }
+
+            function chngBorder() 
+            {
+                console.log($("table"));
+                $("table").attr("border", "1");
+                // css
+                $("table").css("border", "2px solid pink");
+                // {키 : 값, 키 : 값}
+                $("table").css({
+                    color : "pink",
+                    border : "3px datted green"
+                });
+            }
+            </script>
+    </head>
+    <body>
+        <div>
+            <input type="button" value="속성바꾸기" onclick="setAttr(this);"><br>
+            <input type="button" value="JS버튼만들기" onclick="addBtn(this);"><br>
+            <input type="button" value="JQ버튼만들기" onclick="addBtn_JQ(this);"><br>
+            <input type="button" value="테두리변경" onclick="chngBorder();"><br>
+        </div>
+        <table>
+            <tr>
+                <td>테이블입니다.</td>
+            </tr>
+        </table>
+    </body> 
+</html>
