@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>마우스 이벤트</title>
+        <script src="jquery-3.7.1.js"></script>
+        <style>
+            div{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            div.out{
+                background-color: lavender;
+                width: 300px;
+                height: 300px;
+            }
+            div.in{
+                background-color: lavenderblush;
+                width: 200px;
+                height: 200px;
+            }
+
+        </style>
+        <script>
+            window.onload = function(){
+                let count_over = 0;
+                let count_out = 0;
+                let count_enter = 0;
+                let count_leave = 0;
+                let obj = document.querySelector("div.out");
+                obj.onmouseover = function(){
+                    // alert("over");
+                    document.querySelector(".over_count").innerHTML = ++count_over;
+                }
+                obj.onmouseout = function(){
+                    // alert("out");
+                    document.querySelector(".out_count").innerHTML = ++count_out;
+                }
+                obj.onmouseenter = function(){
+                    // alert("enter");
+                    document.querySelector(".enter_count").innerHTML = ++count_enter;
+                }
+                obj.onmouseleave = function(){
+                    // alert("leave");
+                    document.querySelector(".leave_count").innerHTML = ++count_leave;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="out">
+            <div class="in"></div>
+        </div>
+        over : <span class="over_count">0</span><br> 
+        out : <span class="out_count">0</span><br>
+        enter : <span class="enter_count">0</span><br>
+        leave : <span class="leave_count">0</span><br>
+    </body>
+</html>

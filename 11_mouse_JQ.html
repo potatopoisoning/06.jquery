@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>마우스 이벤트</title>
+        <script src="jquery-3.7.1.js"></script>
+        <style>
+            div{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            div.out{
+                background-color: lavender;
+                width: 300px;
+                height: 300px;
+            }
+            div.in{
+                background-color: lavenderblush;
+                width: 200px;
+                height: 200px;
+            }
+
+        </style>
+        <script>
+            // mouseover, mouseout은 내부 객체에도 동일하게 이벤트가 발생
+            // mouseenter, mouseleave는 해당 객체에만 이벤트가 발생됩니다.
+            $(document).ready(function(){
+                let count_over = 0;
+                let count_out = 0;
+                let count_enter = 0;
+                let count_leave = 0;
+                $("div.out")
+                .mouseover(function(){
+                    $(".over_count").text(++count_over);
+                })
+                .mouseout(function(){
+                    $(".out_count").text(++count_out);
+                })
+                .mouseenter(function(){
+                    $(".enter_count").text(++count_enter);
+                })
+                .mouseleave(function(){
+                    $(".leave_count").text(++count_leave);
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <div class="out">
+            <div class="in"></div>
+        </div>
+        over : <span class="over_count">0</span><br> 
+        out : <span class="out_count">0</span><br>
+        enter : <span class="enter_count">0</span><br>
+        leave : <span class="leave_count">0</span><br>
+    </body>
+</html>

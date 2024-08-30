@@ -10,12 +10,12 @@
             }
             #mtblA{
                 position: absolute;
-                background-color: lightpink;
+                background-color: azure;
                 display: none;
             }
             #mtblB{
                 position: absolute;
-                background-color: pink;
+                background-color: lavender;
                 display: none;
             }
             #mtblC{
@@ -26,11 +26,70 @@
         </style>
         <script>
             $(document).ready(function(){
-                $("#menuA").mouseover(function(){
-                    $("#mtblA").attr("display", "table");
+                // 메뉴 항목에 마우스를 올리면 배경색을 바꿔줌
+                $("#menuA, #menuB, #menuC")
+                .mouseover(function(){
+                    $(this).css("background-color", "lightgoldenrodyellow");
+                    // $("#mtblA, #mtblB, #mtblC").css("display", "table");
+                })
+                .mouseout(function(){
+                    $(this).css("background-color", "white");
+                })
+                .click(function(){
+                    // switch case를 이용하여 정리
+                    $(".sub").css("display", "none");
+                    switch($(this).attr("id"))
+                    {
+                        case "menuA" : 
+                            // display 상태를 뒤집는 함수
+                            // 보임 -> 안보임 : 안보임 -> 보임
+                            $("#mtblA").toggle();
+                            break;
+                        case "menuB" : 
+                            $("#mtblB").toggle();
+                            break;
+                        case "menuC" : 
+                            $("#mtblC").toggle();
+                            break;
+                    }
+                });
+                    // 새로운 객체에 이벤트 함수 작성
+                    // #mtblA, #mtblB, #mtblC에서 마우스가 나가면 메뉴테이블을 안보이게 바꿈
+                $(".sub").mouseleave(function(){
+                    $(this).toggle();
                 });
 
+                    // 클릭된 메뉴객체의 id 속성값을 가져옴
+                    // alert($(this).attr("id"));
+                    // if($(this).attr("id") == "menuA")
+                    // {
+                    //     // $("#mtblA, #mtblB, #mtblC").css("display", "none");
+                    //     $(".sub").css("display", "none");
+                    //     // 가져온 id 속성값이 menuA이면 mtblA를 화면에 표시함
+                    //     $("#mtblA").css("display", "table");
+                    // }
+                    // if($(this).attr("id") == "menuB")
+                    //  {
+                    //     $("#mtblB").css("display", "table");
+                    // }
+                    // if($(this).attr("id") == "menuC")
+                    // {
+                    //     $("#mtblC").css("display", "table");
+                    // }
             });
+            // $(document).ready(function(){
+            // $("#menuA").mouseover(function(){
+            //     $("#mtblA").css("display", "table");
+            // });
+            // $("#menuB").mouseover(function(){
+            //     $("#mtblB").css("display", "table");
+            // });
+            // $("#menuC").mouseover(function(){
+            //     $("#mtblC").css("display", "table");
+            // });
+            // $("#menuA, #menuB, #menuC").mouseout(function(){
+            //     $("#mtblA, #mtblB, #mtblC").css("display", "none");
+            // });
         </script>
     </head>
     <body>
@@ -43,25 +102,25 @@
             </tr>
         </table>
         <!-- 하위 테이블 -->
-        <table border="1" id="mtblA">
+        <table border="1" id="mtblA" class="sub">
             <tr>
-                <td>메뉴1</td>
-                <td>메뉴2</td>
-                <td>메뉴3</td>
+                <td><a href="https://www.naver.com/">네이버로 이동</a></td>
+                <td><a href="https://www.google.com/">구글로 이동</a></td>
+                <td><a href="https://www.daum.net/">다음으로 이동</a></td>
             </tr>
         </table>
-        <table border="1" id="mtblB">
+        <table border="1" id="mtblB" class="sub">
             <tr>
-                <td>메뉴1</td>
-                <td>메뉴2</td>
-                <td>메뉴3</td>
+                <td>메뉴2-1</td>
+                <td>메뉴2-2</td>
+                <td>메뉴2-3</td>
             </tr>
         </table>
-        <table border="1" id="mtblC">
+        <table border="1" id="mtblC" class="sub">
             <tr>
-                <td>메뉴1</td>
-                <td>메뉴2</td>
-                <td>메뉴3</td>
+                <td>메뉴3-1</td>
+                <td>메뉴3-2</td>
+                <td>메뉴3-3</td>
             </tr>
         </table>
         <!-- 내용 테이블 -->
